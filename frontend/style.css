@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Roboto", sans-serif;;
+    background-image: url('img/fond-3.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    height: 100vh;
+    background-size: cover;
+    background-color: rgb(50, 50, 50);
+}
+.bg-nav{
+    /* background-color: rgba(0, 0, 0, 0.9); */
+background: #000000;
+background: linear-gradient(179deg, rgba(0, 0, 0, 0.98) 0%, rgba(37, 37, 37, 0.9) 80%, rgba(50, 50, 50, 0.05) 100%);
+}
+
+.bloc{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.page-active{
+    background-color:rgba(171, 174, 177, 0.2);
+    padding: 8px;
+    display: inline-block; 
+    border-radius: 4px;
+}

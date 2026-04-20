@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cinema</title>
+    <link rel="shortcut icon" href="img/new-logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css?v=1.1">
+  </head>
+<!-- PAGE FILMS -->
+  <body class="text-slate-100 min-h-screen flex">
+
+<!-- BARRE DE NAVIGATION LATÉRALE -->
+    <nav class="w-1/4 md:w-60 text-black p-4  flex flex-col bg-nav">
+      <div>
+        <a href=""
+          ><img
+            src="img/new-logo.png"
+            alt=""
+            class="size-16 md:size-32 rounded object-cover"
+        /></a>
+      </div>
+      <ul class="flex flex-col pt-6 text-sm md:text-2xl">
+        <li class="pb-4 font-bold text-white uppercase"><a class="page-active" href="gestionfilm.html">Films</a></li>
+        <li class="pb-4 font-bold text-white uppercase"><a href="./gestionsalle.html">Salles</a></li>
+        <li class="pb-4 font-bold text-white uppercase"><a href="gestionseance.html">Séances</a></li>
+      </ul>
+    </nav>
+
+<!-- CONTENU PRINCIPAL -->
+    <main class="w-3/4 flex flex-col items-center py-10 text-black">
+      <div class="w-11/12 p-8 rounded-lg shadow-xl bloc">
+        <div class="flex justify-between items-center mb-8 border-b pb-4">
+            <h1 class="text-l md:text-2xl font-bold text-white uppercase">Films à l'affiche</h1>
+
+            <!-- BOUTON AJOUT DE FILM -->
+            <button onclick="toggleForm()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-base md:text-lg">
+              <span class="block md:hidden">+</span> <span class="hidden md:block">+ Ajouter un film</span>
+            </button>
+        </div>
+
+        <!-- FORMULAIRE POUR AJOUTER FILM -->
+        <div id="add-movie-form" class="hidden mb-10 bg-slate-50 p-6 rounded-xl border-2 border-dashed border-slate-200">
+          <h2 id="formTitle" class="text-xl font-bold mb-4">Nouveau Film</h2>
+          <form onsubmit="saveMovie(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="hidden" id="movieId" value="">
+            <input type="text" id="title" placeholder="Titre du film" class="p-2 rounded border" required>
+            <input type="text" id="director" placeholder="Réalisateur" class="p-2 rounded border">
+            <input type="text" id="genre" placeholder="Genre (ex: Action)" class="p-2 rounded border">
+            <input type="number" id="release_year" placeholder="Année" class="p-2 rounded border">
+            <input type="number" id="duration" placeholder="Durée (min)" class="p-2 rounded border">
+            <textarea id="description" placeholder="Synopsis..." class="p-2 rounded border md:col-span-2"></textarea>
+            
+            <!-- BOUTONS ANNULER / ENREGISTRER FILM -->
+            <div class="md:col-span-2 flex flex-col md:flex-row justify-end gap-3">
+              <button type="button" onclick="toggleForm()" class="text-slate-600">Annuler</button>
+              <button type="submit" id="submitBtn" class="bg-green-500 text-white px-6 py-2 rounded font-bold">Enregistrer</button>
+            </div>
+          </form>
+        </div>
+        <div id="movie-list" class="flex flex-col gap-4 w-full">
+          <p class="text-slate-500 italic">Chargement des films...</p>
+        </div>
+
+        <!-- PAGINATION FILMS -->
+        <div id="pagination" class="flex justify-center items-center gap-4 mt-8"></div> 
+      </div>
+    </main>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

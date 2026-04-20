@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cinema - Gestion Salles</title>
+    <link rel="shortcut icon" href="img/new-logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css?v=1.1">
+  </head>
+
+<!-- PAGE SALLES -->
+  <body class=" text-slate-100 min-h-screen flex">
+
+<!-- BARRE DE NAVIGATION LATÉRALE -->
+    <nav class="w-1/4 md:w-60 text-black p-4 flex flex-col bg-nav">
+      <div>
+        <a href="index.html">
+          <img
+            src="img/new-logo.png"
+            alt="Logo"
+            class="size-16 md:size-32 rounded object-cover"
+          />
+        </a>
+      </div>
+      <ul class="flex flex-col pt-6 text-sm md:text-2xl">
+        <li class="pb-4 font-bold text-white uppercase"><a href="gestionfilm.html">Films</a></li>
+        <li class="pb-4 font-bold text-white uppercase"><a class="page-active" href="gestionsalle.html">Salles</a></li>
+        <li class="pb-4 font-bold text-white uppercase"><a href="gestionseance.html">Séances</a></li>
+      </ul>
+    </nav>
+
+<!-- CONTENU PRINCIPAL -->
+    <main class="w-3/4 flex flex-col items-center py-10 text-black">
+      <div class="w-11/12 p-8 rounded-lg shadow-xl bloc">
+        <div class="flex justify-between items-center mb-8 border-b pb-4">
+            <h1 class="text-l md:text-2xl font-bold text-white uppercase">Gestion des Salles</h1>
+            <button onclick="toggleRoomForm()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-base md:text-lg">
+                    <span class="block md:hidden">+</span> <span class="hidden md:block">+ Ajouter une salle</span>
+            </button>
+        </div>
+        <div class="flex justify-end mb-4">
+          <button id="btn-archive" onclick="toggleArchiveView()" class="text-sm text-slate-500 underline">
+            Voir les salles désactivées
+          </button>
+        </div>
+
+        <!-- FORMULAIRE POUR AJOUTER SALLE -->
+          <div id="add-room-form" class="hidden mb-10 bg-slate-50 p-6 rounded-xl border-2 border-dashed border-slate-200">
+            <h2 class="text-xl font-bold mb-4">Nouvelle Salle</h2>
+            <form onsubmit="saveRoom(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" id="room_name" placeholder="Nom de la salle (ex: Salle 1)" class="p-2 rounded border" required>
+              <input type="number" id="room_capacity" placeholder="Capacité (sièges)" class="p-2 rounded border" required>
+                <select id="room_type" class="p-2 rounded border bg-white">
+                    <option value="Standard">Standard</option>
+                    <option value="IMAX">IMAX</option>
+                    <option value="3D">3D</option>
+                    <option value="Dolby Atmos">Dolby Atmos</option>
+                </select>
+
+                <!-- BOUTONS ANNULER / ENREGISTRER SALLE -->
+                <div class="md:col-span-2 flex flex-col md:flex-row justify-end gap-3">
+                    <button type="button" onclick="toggleRoomForm()" class="text-slate-600">Annuler</button>
+                    <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded font-bold">Enregistrer</button>
+                </div>
+            </form>
+          </div>
+        <!-- LISTE DES SALLES -->
+        <div id="room-list" class="flex flex-col gap-4 w-full">
+            <p class="text-slate-500 italic"></p>
+        </div>
+        
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
