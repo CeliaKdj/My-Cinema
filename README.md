@@ -15,6 +15,6 @@ Application web de gestion pour un cinéma
     - frontend : contient "le code HTML, CSS, JavaScript de votre projet, ainsi que les ressources nécessaires (images, polices éventuelles, etc)."
     - backend : contient "exclusivement le code PHP et MySQL du projet."
 
-### Le lancement du projet :
+### Le lancement du projet :
 * Dans le terminal, dans le dossier ou se trouve le projet (ex: cd W-WEB-102-LIL-1-1-my_cinema-6) lancer la commande suivante : php -S localhost:8000
 * Pour accéder au site, il faut se rendre sur l'adresse suivante : http://localhost/my_cinema/frontend/gestionfilm.html
